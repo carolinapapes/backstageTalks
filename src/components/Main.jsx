@@ -32,8 +32,7 @@ export default function Main({ className }) {
       // setBackgroundColor('color-4');
       elementRef.current.style.background = '#1d3fbb';
     } else {
-      // setBackgroundColor('color-5');
-      elementRef.current.style.background = '#e30512;';
+      elementRef.current.style.background = '#e30512';
     }
   };
 
@@ -43,12 +42,12 @@ export default function Main({ className }) {
       onScroll={showScroll}
       ref={elementRef}
     >
-      <Section imgUrl={issue6} />
-      <Section imgUrl={issue5} />
-      <Section imgUrl={issue4} />
-      <Section imgUrl={issue3} />
-      <Section imgUrl={issue2} />
-      <Section imgUrl={issue1} />
+      <Section imgUrl={issue6} id="issue1" />
+      <Section imgUrl={issue5} id="issue2" />
+      <Section imgUrl={issue4} id="issue3" />
+      <Section imgUrl={issue3} id="issue4" />
+      <Section imgUrl={issue2} id="issue5" />
+      <Section imgUrl={issue1} id="issue6" />
     </div>
   );
 }

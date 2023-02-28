@@ -9,7 +9,16 @@ $main_padding: 50px;
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 50px;
     padding: $main_padding;
+    .navLinks {
+      grid-column: 3;
+      justify-self: end;
+      align-self: end;
+    }
   }
   &__main {
     min-width: 100%;
@@ -28,7 +37,7 @@ $main_padding: 50px;
       align-items: center;
       img {
         margin: 0 auto;
-        width: 30%;
+        width: 33%;
       }
       // @for $i from 1 through length($colors) {
       //   &:nth-child(#{length($colors)}n + #{$i}) {
@@ -46,7 +55,7 @@ $main_padding: 50px;
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 50px;
     pointer-events: none;
     .contact {

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import styles from './Section.module.scss';
 
-export default function Section({ imgUrl }) {
+export default function Section({ imgUrl, id }) {
   return (
-    <div className="section">
+    <div className="section" id={id}>
       <img src={imgUrl} alt="" />
     </div>
   );
@@ -12,4 +12,5 @@ export default function Section({ imgUrl }) {
 
 Section.propTypes = {
   imgUrl: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
