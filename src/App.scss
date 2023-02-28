@@ -1,71 +1,120 @@
 @use '_colors' as *;
 
 $main_padding: 50px;
+
 .layout {
-  position: relative;
-  &__header {
-    // background-color: $color_1;
+  overflow-y: scroll;
+  will-change: background-color;
+  transition: background-color 700ms ease 0s;
+  height: 100%;
+  width: 100%;
+  scroll-snap-type: y mandatory;
+  &__wrapper--sm {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    overflow: visible;
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 50px;
+    width: 100%;
+    pointer-events: none;
+  }
+  &__header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: min-content;
+    display: block;
     padding: $main_padding;
     pointer-events: none;
     .navLinks {
-      grid-column: 3;
-      justify-self: end;
-      align-self: end;
-      pointer-events: all;
+      display: none;
     }
   }
-  &__main {
-    min-width: 100%;
-    height: 100%;
-    overflow: hidden;
-    will-change: background-color;
-    transition: background-color 700ms ease 0s;
 
-    .section {
-      padding: $main_padding;
-      height: 100%;
-      width: 100%;
-      scroll-snap-align: start;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        margin: 0 auto;
-        width: 33%;
-      }
-      // @for $i from 1 through length($colors) {
-      //   &:nth-child(#{length($colors)}n + #{$i}) {
-      //     background: nth($colors, $i);
-      //   }
-      // }
+  .section {
+    padding: $main_padding;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: center;
+
+    img {
+      margin: 0 auto;
+      width: 75%;
     }
   }
   &__footer {
-    // background-color: $color_3;
     padding: $main_padding;
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: static;
+
     width: 100%;
-    height: 100%;
+    height: auto;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr;
     gap: 50px;
     pointer-events: none;
+    scroll-snap-align: end;
+
     .contact {
-      grid-column: 3;
       justify-self: end;
     }
     .notes {
       align-self: end;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .layout {
+    scroll-snap-type: y mandatory;
+    &__header {
+      position: sticky;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 50px;
+      .navLinks {
+        grid-column: 3;
+        justify-self: end;
+        align-self: end;
+        pointer-events: all;
+        display: block;
+      }
+    }
+    .section {
+      height: 100vh;
+      scroll-snap-align: start;
+      img {
+        margin: 0 auto;
+        width: 33%;
+      }
+    }
+    &__wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: visible;
+      height: 100%;
+      pointer-events: none;
+    }
+    &__footer {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      grid-template-columns: 1fr 2fr 1fr;
+      pointer-events: none;
+
+      .contact {
+        grid-column: 3;
+        justify-self: end;
+      }
+      .notes {
+        align-self: end;
+      }
     }
   }
 }
