@@ -8,22 +8,22 @@ export default function Header({ className }) {
       <h1>Page name</h1>
       <ul className="navLinks">
         <li>
-          <a href="#issue1">issue 1</a>
-        </li>
-        <li>
-          <a href="#issue2">issue 2</a>
-        </li>
-        <li>
-          <a href="#issue3">issue 3</a>
-        </li>
-        <li>
-          <a href="#issue4">issue 4</a>
+          <a href="#issue6">issue 6</a>
         </li>
         <li>
           <a href="#issue5">issue 5</a>
         </li>
         <li>
-          <a href="#issue6">issue 6</a>
+          <a href="#issue4">issue 4</a>
+        </li>
+        <li>
+          <a href="#issue3">issue 3</a>
+        </li>
+        <li>
+          <a href="#issue2">issue 2</a>
+        </li>
+        <li>
+          <a href="#issue1">issue 1</a>
         </li>
       </ul>
     </nav>

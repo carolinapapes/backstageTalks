@@ -14,10 +14,12 @@ $main_padding: 50px;
     grid-template-columns: 1fr 2fr 1fr;
     gap: 50px;
     padding: $main_padding;
+    pointer-events: none;
     .navLinks {
       grid-column: 3;
       justify-self: end;
       align-self: end;
+      pointer-events: all;
     }
   }
   &__main {
