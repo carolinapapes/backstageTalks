@@ -5,12 +5,13 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 
 function App() {
-  return 
-  <>
-    <Header/>
-    <Main/>
-    <Footer/>
-  </>;
+  return (
+    <>
+      <Header className="layout__header" />
+      <Main className="layout__main" />
+      <Footer className="layout__footer" />
+    </>
+  );
 }
 
 export default App;
