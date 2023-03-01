@@ -1,0 +1,164 @@
+@use '_colors' as *;
+
+$main_padding: 22px;
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  line-height: 2;
+}
+p {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 25px;
+}
+h1 {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 900;
+}
+h2 {
+  font-size: 18px;
+}
+.copyrigth {
+  font-size: 12px;
+  font-weight: normal;
+}
+.subtitle_links {
+  font-size: 15px;
+  padding-top: 3px;
+  line-height: 22px;
+  text-align: center;
+  a {
+    font-weight: 700;
+    color: pink;
+  }
+}
+.layout {
+  overflow-y: scroll;
+  will-change: background-color;
+  transition: background-color 700ms ease 0s;
+  height: 100%;
+  width: 100%;
+  scroll-snap-type: y mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__wrapper--sm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
+  &__header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: min-content;
+    display: block;
+    padding: $main_padding;
+    pointer-events: none;
+    .navLinks {
+      display: none;
+    }
+  }
+
+  .section {
+    padding: $main_padding;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: center;
+
+    img {
+      margin: 0 auto;
+      width: 75%;
+    }
+  }
+  &__footer {
+    padding: $main_padding;
+    position: static;
+
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    pointer-events: none;
+    scroll-snap-align: end;
+
+    .contact {
+      justify-self: end;
+    }
+    .notes {
+      align-self: end;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .layout {
+    scroll-snap-type: y mandatory;
+    &__header {
+      position: sticky;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 50px;
+      .navLinks {
+        grid-column: 3;
+        justify-self: end;
+        align-self: end;
+        pointer-events: all;
+        display: block;
+      }
+    }
+    .section {
+      height: 100vh;
+      scroll-snap-align: start;
+      img {
+        margin: 0 auto;
+        width: 33%;
+      }
+    }
+    &__wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: visible;
+      height: 100%;
+      pointer-events: none;
+    }
+    &__footer {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      grid-template-columns: minmax(320px, 1fr) 2fr 1fr;
+      pointer-events: none;
+
+      .contact {
+        grid-column: 3;
+        justify-self: end;
+      }
+      .notes {
+        align-self: end;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  }
+}
