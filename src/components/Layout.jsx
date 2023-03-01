@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Section from './Section';
@@ -41,37 +41,36 @@ const slides = [
     backgroundColor: '#e30512',
   },
 ];
+
 export default function Layout() {
   const elementRef = useRef(null);
-  function debounce(func, timeout = 20) {
-    let timer;
-    return (...args) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        func.apply(this, args);
-      }, timeout);
-    };
-  }
-  const changeLocation = (issue) => {
-    window.history.pushState('Backstage Talks', issue, `/#${issue}`);
-  };
-  const processChange = debounce((issue) => changeLocation(issue));
+  let correction = 1;
+  let currentPage = 0;
+  let slideHeight = 0;
 
-  const showScrollV2 = () => {
-    const slideHeight = elementRef.current.clientHeight;
+  // Check use layout effect instead
+  useEffect(() => {
+    slideHeight = elementRef.current.clientHeight;
+    correction = slideHeight * 0.3;
+  });
+
+  const showScroll = () => {
     const currentScroll = elementRef.current.scrollTop;
-    const percentageCorrection = 0.3;
-    // TO-DO it could be better
-    let page = currentScroll / slideHeight;
-    page = page % 1 < percentageCorrection ? Math.floor(page) : Math.ceil(page);
-    if (page >= slides.length) page -= 1;
-    //
-    elementRef.current.style.background = slides[page].backgroundColor;
-    processChange(slides[page].name);
+    const page = currentScroll / slideHeight;
+    const newPage =
+      currentScroll % slideHeight < correction
+        ? Math.floor(page)
+        : Math.ceil(page);
+    if (newPage !== currentPage && newPage < slides.length) {
+      currentPage = newPage;
+      elementRef.current.style.background = slides[currentPage].backgroundColor;
+      const pageName = slides[currentPage].name;
+      window.history.pushState('Backstage Talks', pageName, `/#${pageName}`);
+    }
   };
 
   return (
-    <div className="layout" onScroll={showScrollV2} ref={elementRef}>
+    <div className="layout" onScroll={showScroll} ref={elementRef}>
       <div className="layout__wrapper layout__wrapper--sm">
         <Header className="layout__header" />
       </div>

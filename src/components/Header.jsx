@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Header.module.scss';
 
 export default function Header({ className }) {
   return (
-    <nav className={`${className} ${styles.main}`}>
+    <nav className={`${className}`}>
       <h1>Page name</h1>
       <ul className="navLinks">
         <li>

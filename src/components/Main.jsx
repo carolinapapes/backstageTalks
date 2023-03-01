@@ -1,7 +1,6 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import styles from './Main.module.scss';
 import Section from './Section';
 import issue1 from '../img/backstagetalks_cover_issue_1.png';
 import issue2 from '../img/backstagetalks_cover_issue_2.png';
