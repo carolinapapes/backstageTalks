@@ -4,7 +4,7 @@ $color_2: #ff651a;
 $color_3: #ffbe00;
 $color_4: #1d3fbb;
 $color_5: #e30512;
-$color_positive: #000;
+$color_positive: #251d20;
 $color_negative: #fff;
 
 $colors: $color_1, $color_2, $color_3, $color_4, $color_5;
@@ -23,4 +23,9 @@ $colors: $color_1, $color_2, $color_3, $color_4, $color_5;
 }
 .color-5 {
   background-color: #e30512;
+}
+
+body,
+a {
+  color: #251d20;
 }

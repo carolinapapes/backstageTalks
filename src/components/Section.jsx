@@ -3,9 +3,19 @@ import PropTypes from 'prop-types';
 
 export default function Section({ imgUrl, id }) {
   return (
-    <div className="section" id={id}>
+    <section className="section" id={id}>
       <img src={imgUrl} alt="" />
-    </div>
+      <h2>Issue #6</h2>
+      <p className="subtitle_links">
+        <span>
+          <a href="/buy">BUY HERE</a>
+        </span>
+        <br />
+        <span>
+          or in <a href="selected">selected stores</a>.
+        </span>
+      </p>
+    </section>
   );
 }
 
