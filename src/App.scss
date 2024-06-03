@@ -8,6 +8,9 @@ ul {
 a {
   text-decoration: none;
   line-height: 2;
+  &.current{
+    font-weight: bold;
+  }
 }
 p {
   font-size: 18px;

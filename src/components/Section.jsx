@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import projectProptypes from './proptypes';
 
-export default function Section({ alt, id, imgUrl, name }) {
+export default function Section({ slide: { alt, id, image, name } }) {
   return (
     <section className="section" id={id}>
-      <img src={imgUrl} alt={alt} />
+      <img src={image} alt={alt} />
       <h2>{name}</h2>
       <p className="subtitle_links">
         <span>
@@ -20,8 +21,5 @@ export default function Section({ alt, id, imgUrl, name }) {
 }
 
 Section.propTypes = {
-  alt: PropTypes.string.isRequired,
-  imgUrl: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  slide: PropTypes.shape(projectProptypes.slides).isRequired,
 };

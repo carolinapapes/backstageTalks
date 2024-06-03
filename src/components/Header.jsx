@@ -1,38 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
+import NavLink from './NavLink';
+import projectProptypes from './proptypes';
 
-export default function Header({ className }) {
+export default function Header({ slides, currentPage }) {
   return (
-    <nav className={`${className}`}>
+    <nav className="layout__header">
       <h1>Backstage Talks</h1>
       <ul className="navLinks">
-        <li>
-          <a href="#issue6">Issue # 6</a>
-        </li>
-        <li>
-          <a href="#issue5">Issue # 5</a>
-        </li>
-        <li>
-          <a href="#issue4">Issue # 4</a>
-        </li>
-        <li>
-          <a href="#issue3">Issue # 3</a>
-        </li>
-        <li>
-          <a href="#issue2">Issue # 2</a>
-        </li>
-        <li>
-          <a href="#issue1">Issue # 1</a>
-        </li>
+        {slides.map((slide, index) => (
+          <NavLink
+            key={slide.id}
+            id={slide.id}
+            name={slide.name}
+            isCurrentPage={index === currentPage}
+          />
+        ))}
       </ul>
     </nav>
   );
 }
 
 Header.propTypes = {
-  className: PropTypes.string,
-};
-
-Header.defaultProps = {
-  className: '',
+  slides: propTypes.arrayOf(propTypes.shape(projectProptypes.slides))
+    .isRequired,
+  currentPage: propTypes.number.isRequired,
 };
