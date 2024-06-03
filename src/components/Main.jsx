@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import Section from './Section';
 import issue1 from '../img/backstagetalks_cover_issue_1.png';
 import issue2 from '../img/backstagetalks_cover_issue_2.png';
@@ -9,7 +8,7 @@ import issue4 from '../img/backstagetalks_cover_issue_4.png';
 import issue5 from '../img/backstagetalks_cover_issue_5.png';
 import issue6 from '../img/backstagetalks_cover_issue_6.png';
 
-export default function Main({ className }) {
+export default function Main() {
   return (
     <main>
       <Section imgUrl={issue6} id="issue6" />
@@ -21,11 +20,3 @@ export default function Main({ className }) {
     </main>
   );
 }
-
-Main.propTypes = {
-  className: PropTypes.string,
-};
-
-Main.defaultProps = {
-  className: '',
-};

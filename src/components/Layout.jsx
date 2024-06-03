@@ -11,34 +11,46 @@ import issue6 from '../img/backstagetalks_cover_issue_6.png';
 
 const slides = [
   {
-    image: issue6,
-    name: 'issue6',
+    alt: 'Issue 6 cover',
     backgroundColor: '#ffffff',
+    id: 'issue6',
+    image: issue6,
+    name: 'Issue 6',
   },
   {
-    image: issue5,
-    name: 'issue5',
+    alt: 'Issue 5 cover',
     backgroundColor: '#00c1b5',
+    id: 'issue5',
+    image: issue5,
+    name: 'Issue 5',
   },
   {
+    alt: 'Issue 4 cover',
+    backgroundColor: '#ff651a',
+    id: 'issue4',
     image: issue4,
     name: 'issue4',
-    backgroundColor: '#ff651a',
   },
   {
-    image: issue3,
-    name: 'issue3',
+    alt: 'Issue 3 cover',
     backgroundColor: '#ffbe00',
+    id: 'issue3',
+    image: issue3,
+    name: 'Issue 3',
   },
   {
-    image: issue2,
-    name: 'issue2',
+    alt: 'Issue 2 cover',
     backgroundColor: '#1d3fbb',
+    id: 'issue2',
+    image: issue2,
+    name: 'Issue 2',
   },
   {
-    image: issue1,
-    name: 'issue1',
+    alt: 'Issue 1 cover',
     backgroundColor: '#e30512',
+    id: 'issue1',
+    image: issue1,
+    name: 'Issue 1',
   },
 ];
 
@@ -75,12 +87,16 @@ export default function Layout() {
         <Header className="layout__header" />
       </div>
       <main>
-        <Section imgUrl={issue6} id="issue6" />
-        <Section imgUrl={issue5} id="issue5" />
-        <Section imgUrl={issue4} id="issue4" />
-        <Section imgUrl={issue3} id="issue3" />
-        <Section imgUrl={issue2} id="issue2" />
-        <Section imgUrl={issue1} id="issue1" />
+        {slides.map((slide) => (
+          <Section
+            key={slide.id}
+            imgUrl={slide.image}
+            id={slide.id}
+            ref={elementRef}
+            alt={slide.alt}
+          />
+        ))}
+        ;
       </main>
       <div className="layout__wrapper">
         <Footer className="layout__footer" />
